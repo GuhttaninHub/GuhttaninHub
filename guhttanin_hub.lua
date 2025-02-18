@@ -18,7 +18,7 @@ if Fluent then
             Increment = 1,
             Callback = function(value)
                 local player = game.Players.LocalPlayer
-                local character = player.Character or player.Character:AddedWait()
+                local character = player.Character or player.CharacterAdded:Wait()
                 local humanoid = character:WaitForChild("Humanoid")
 
                 humanoid.WalkSpeed = value
