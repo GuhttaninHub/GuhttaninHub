@@ -60,8 +60,7 @@ if Fluent then
 
     local section_settings_restore = Player:Section("Restore")
 
-    local button_restore_velocity = section_settings_restore:Button("Button_Restore_Speed",
-        {
+    local button_restore_velocity = section_settings_restore:Button({
             Title = "Restaurar Velocidade",
             Description = "Resete a velocidade para default",
             Callback = function()
@@ -69,8 +68,7 @@ if Fluent then
             end
     })
 
-    local button_restore_jump = section_settings_restore:Button("Button_Restore_Jump",
-        {
+    local button_restore_jump = section_settings_restore:Button({
             Title = "Restaurar Pulo",
             Description = "Resete o pulo para default",
             Callback = function()
@@ -78,8 +76,7 @@ if Fluent then
             end
     })
 
-    local button_restore_gravity = section_settings_restore:Button("Button_Restore_Gravity",
-        {
+    local button_restore_gravity = section_settings_restore:Button({
             Title = "Restaurar Gravidade",
             Description = "Resete a gravidade para default",
             Callback = function()
