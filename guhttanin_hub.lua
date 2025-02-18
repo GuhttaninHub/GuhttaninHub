@@ -65,7 +65,7 @@ if Fluent then
             Title = "Restaurar Velocidade",
             Description = "Resete a velocidade para default",
             Callback = function()
-                Slider_WalkSpeed:SetValue(16)
+                slider_walkspeed:SetValue(16)
             end
     })
 
@@ -74,7 +74,7 @@ if Fluent then
             Title = "Restaurar Pulo",
             Description = "Resete o pulo para default",
             Callback = function()
-                Slider_Jump:SetValue(50)
+                slider_jump:SetValue(50)
             end
     })
 
@@ -83,7 +83,7 @@ if Fluent then
             Title = "Restaurar Gravidade",
             Description = "Resete a gravidade para default",
             Callback = function()
-                Slider_Gravity:SetValue(196.2)
+                slider_gravity:SetValue(196.2)
             end
     })
     
