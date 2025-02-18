@@ -83,6 +83,12 @@ if Fluent then
             slider_gravity:SetValue(196.2)
         end
     })
+
+    local slider_imortal = section_settings_player:AddSlider("Slider_Imortal",
+        {
+            Title = "Imortalidade",
+            
+    })
     
     Window:Show()
 else
