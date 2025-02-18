@@ -6,7 +6,6 @@ if Fluent then
         SubTitle = "Desenvolvido por Guhttanin",
         Size = UDim2.fromOffset(720, 400),
         Theme = "Dark",
-        Resize = true,
     })
 
     local Player = Window:AddTab({ Title = "Settings", Icon = "user"})
