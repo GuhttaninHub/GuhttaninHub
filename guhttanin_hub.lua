@@ -25,6 +25,21 @@ if Fluent then
                 humanoid.WalkSpeed = value
             end
     })
+
+    local slider_jump = Player:AddSlider("Slider_Jump",
+        {
+            Title = "Pulo",
+            Min = 0,
+            Max = 500,
+            Default = 50,
+            Increment = 1,
+            Callback = function(value)
+                local player = game.Players.LocalPlayer
+                local character = player.Character or player.CharacterAdded:Wait()
+                local humanoid = character:WaitForChild("Humanoid")
+
+                humanoid.JumpHeight = value
+    })
     
     Window:Show()
 else
