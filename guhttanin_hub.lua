@@ -44,7 +44,7 @@ if Fluent then
             end
     })
 
-    local section_settings_game = Player:Section("Player")
+    local section_settings_game = Player:Section("Game")
 
     local slider_gravity = section_settings_game:AddSlider("Slider_Gravity",
         {
