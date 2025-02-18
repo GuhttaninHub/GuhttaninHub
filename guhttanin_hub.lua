@@ -62,27 +62,27 @@ if Fluent then
     local section_settings_restore = Player:Section("Restore")
 
     local button_restore_velocity = section_settings_restore:Button({
-            Title = "Restaurar Velocidade",
-            Description = "Resete a velocidade para default",
-            Callback = function()
-                slider_walkspeed:SetValue(16)
-            end
+        Title = "Restaurar Velocidade",
+        Description = "Resete a velocidade para default",
+        Callback = function()
+            slider_walkspeed:SetValue(16)
+        end
     })
 
     local button_restore_jump = section_settings_restore:Button({
-            Title = "Restaurar Pulo",
-            Description = "Resete o pulo para default",
-            Callback = function()
-                slider_jump:SetValue(50)
-            end
+        Title = "Restaurar Pulo",
+        Description = "Resete o pulo para default",
+        Callback = function()
+            slider_jump:SetValue(50)
+        end
     })
 
     local button_restore_gravity = section_settings_restore:Button({
-            Title = "Restaurar Gravidade",
-            Description = "Resete a gravidade para default",
-            Callback = function()
-                slider_gravity:SetValue(196.2)
-            end
+        Title = "Restaurar Gravidade",
+        Description = "Resete a gravidade para default",
+        Callback = function()
+            slider_gravity:SetValue(196.2)
+        end
     })
     
     Window:Show()
