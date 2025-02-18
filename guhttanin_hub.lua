@@ -10,7 +10,11 @@ if Fluent then
 
     local Player = Window:AddTab({ Title = "Settings", Icon = "user"})
 
-    local slider_walkspeed = Player:AddSlider("Slider_WalkSpeed",
+    local section_settings_player = Player:AddSection({
+            Title = "Player",
+    })
+
+    local slider_walkspeed = section_settings_player:AddSlider("Slider_WalkSpeed",
         {
             Title = "Velocidade",
             Min = 0,
@@ -26,7 +30,7 @@ if Fluent then
             end
     })
 
-    local slider_jump = Player:AddSlider("Slider_Jump",
+    local slider_jump = section_settings_player:AddSlider("Slider_Jump",
         {
             Title = "Pulo",
             Min = 0,
@@ -39,6 +43,22 @@ if Fluent then
                 local humanoid = character:WaitForChild("Humanoid")
 
                 humanoid.JumpPower = value
+            end
+    })
+
+    local section_settings_game = Player:AddSection({
+            Title = "Game",
+    })
+
+    local slider_gravity = section_settings_game:AddSlider("Slider_Gravity",
+        {
+            Title = "Gravidade", 
+            Min = 0,
+            Max = 500,
+            Default = 196.2,
+            Increment = 0.2,
+            Callback = function(value)
+                game.Workspace.Gravity = value
             end
     })
     
