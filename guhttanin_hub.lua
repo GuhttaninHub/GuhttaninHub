@@ -38,7 +38,7 @@ if Fluent then
                 local character = player.Character or player.CharacterAdded:Wait()
                 local humanoid = character:WaitForChild("Humanoid")
 
-                humanoid.JumpHeight = value
+                humanoid.JumpPower = value
             end
     })
     
