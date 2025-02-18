@@ -10,7 +10,7 @@ if Fluent then
 
     Player = Window:AddTab({ Title = "Player"}, Icon = "user"})
 
-    local Toggle = Tab:AddToggle("MyToggle", 
+    local Toggle = Player:AddToggle("MyToggle", 
     {
     Title = "Super Velocidade", 
     Default = false
