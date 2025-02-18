@@ -54,7 +54,7 @@ if Fluent then
             Default = 196.2,
             Increment = 0.2,
             Callback = function(value)
-                game:GetService("Workspace.Gravity") = value
+                game:GetService("Workspace").Gravity = value
             end
     })
     
