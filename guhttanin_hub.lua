@@ -57,6 +57,35 @@ if Fluent then
                 Workspace.Gravity = value
             end
     })
+
+    local section_settings_restore = Player:Section("Restore")
+
+    local button_restore_velocity = section_settings_restore:AddButton("Button_Restore_Speed",
+        {
+            Title = "Restaurar Velocidade",
+            Description = "Resete a velocidade para default",
+            Callback = function()
+                Slider_WalkSpeed:SetValue(16)
+            end
+    })
+
+    local button_restore_jump = section_settings_restore:AddButton("Button_Restore_Jump",
+        {
+            Title = "Restaurar Pulo",
+            Description = "Resete o pulo para default",
+            Callback = function()
+                Slider_Jump:SetValue(50)
+            end
+    })
+
+    local button_restore_gravity = section_settings_restore:AddButton("Button_Restore_Gravity",
+        {
+            Title = "Restaurar Gravidade",
+            Description = "Resete a gravidade para default",
+            Callback = function()
+                Slider_Gravity:SetValue(196.2)
+            end
+    })
     
     Window:Show()
 else
