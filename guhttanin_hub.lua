@@ -4,13 +4,13 @@ if Fluent then
     local Window = Fluent:CreateWindow({
         Title = "Guhttanin Hub",
         SubTitle = "Desenvolvido por Guhttanin",
-        Size = UDim2.fromOffset(720, 600),
+        Size = UDim2.fromOffset(720, 400),
         Theme = "Dark",
     })
 
     local Player = Window:AddTab({ Title = "Player", Icon = "user"})
 
-    local Toggle = Player:AddToggle("MyToggle", 
+    local Toggle = Player:AddToggle("Walkspeed", 
     {
         Title = "Super Velocidade", 
         Default = false,
