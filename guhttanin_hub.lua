@@ -39,6 +39,7 @@ if Fluent then
                 local humanoid = character:WaitForChild("Humanoid")
 
                 humanoid.JumpHeight = value
+            end
     })
     
     Window:Show()
