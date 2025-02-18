@@ -10,7 +10,8 @@ if Fluent then
 
     local Player = Window:AddTab({ Title = "Player", Icon = "user"})
 
-    local slider_walkspeed = Player:AddSlider({
+    local slider_walkspeed = Player:AddSlider("Slider_WalkSpeed",
+        {
             Title = "Velocidade",
             Min = 0,
             Max = 500,
