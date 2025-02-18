@@ -8,27 +8,23 @@ if Fluent then
         Theme = "Dark",
     })
 
-    Player = Window:AddTab({ Title = "Player"}, Icon = "user"})
+    local Player = Window:AddTab({ Title = "Player", Icon = "user"})
 
     local Toggle = Player:AddToggle("MyToggle", 
     {
-    Title = "Super Velocidade", 
-    Default = false
-    Callback = function(state)
-	if state then
-	    local player = game.Players.LocalPlayer
-        local character = player.Character or player.CharacterAdded:Wait()
-        local humanoid = character:WaitForChild("Humanoid")
+        Title = "Super Velocidade", 
+        Default = false,
+        Callback = function(state)
+            local player = game.Players.LocalPlayer
+            local character = player.Character or player.CharacterAdded:Wait()
+            local humanoid = character:WaitForChild("Humanoid")
 
-        humanoid.WalkSpeed = 100
-	else
-	    local player = game.Players.LocalPlayer
-        local character = player.Character or player.CharacterAdded:Wait()
-        local humanoid = character:WaitForChild("Humanoid")
-
-        humanoid.WalkSpeed = 16
+            if state then
+                humanoid.WalkSpeed = 100
+            else
+                humanoid.WalkSpeed = 16
+            end
         end
-    end 
     })
     
     Window:Show()
