@@ -8,7 +8,7 @@ if Fluent then
         Theme = "Dark",
     })
 
-    local Player = Window:AddTab({ Title = "Player", Icon = "user"})
+    local Player = Window:AddTab({ Title = "Settings", Icon = "user"})
 
     local slider_walkspeed = Player:AddSlider("Slider_WalkSpeed",
         {
