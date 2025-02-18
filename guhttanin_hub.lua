@@ -10,21 +10,19 @@ if Fluent then
 
     local Player = Window:AddTab({ Title = "Player", Icon = "user"})
 
-    local Toggle = Player:AddToggle("Walkspeed", 
-    {
-        Title = "Super Velocidade", 
-        Default = false,
-        Callback = function(state)
-            local player = game.Players.LocalPlayer
-            local character = player.Character or player.CharacterAdded:Wait()
-            local humanoid = character:WaitForChild("Humanoid")
+    local slider_walkspeed = Player.AddSlider({
+            Title = "Velocidade",
+            Min = 0,
+            Max = 500,
+            Default = 16,
+            Increment = 1,
+            Callback = function(value)
+                local player = game.Player.LocalPlayer
+                local character = player.Character or player.Character:AddedWait()
+                local humanoid = character.WaitForChild("Humanoid")
 
-            if state then
-                humanoid.WalkSpeed = 100
-            else
-                humanoid.WalkSpeed = 16
+                humanoid.WalkSpeed = value
             end
-        end
     })
     
     Window:Show()
