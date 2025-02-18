@@ -11,7 +11,7 @@ if Fluent then
     local Player = Window:AddTab({ Title = "Settings", Icon = "user"})
 
     local section_settings_player = Player:AddSection({
-            Title = "Player",
+            Title = "Player"
     })
 
     local slider_walkspeed = section_settings_player:AddSlider("Slider_WalkSpeed",
@@ -47,7 +47,7 @@ if Fluent then
     })
 
     local section_settings_game = Player:AddSection({
-            Title = "Game",
+            Title = "Game"
     })
 
     local slider_gravity = section_settings_game:AddSlider("Slider_Gravity",
