@@ -128,7 +128,7 @@ if Fluent then
             Default = nil,
             Callback = function(selectedOption)
                 local player_tween = game.Players:FindFirstChild(selectedOption)
-                if player then
+                if player_tween then
                     local character = player_tween.Character
                     if character then
                         local humanoid_root_part = character:FindFirstChild("HumanoidRootPart")
