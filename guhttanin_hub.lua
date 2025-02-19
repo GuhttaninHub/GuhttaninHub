@@ -121,22 +121,15 @@ if Fluent then
 
     local section_settings_tween = Player:Section("Tween")
 
+    local variable_tween_player
+
     local dropdown_tween_player = section_settings_tween:Dropdown("DropDown_Tween_Players",
         {
             Title = "Escolher (em desenvolvimento)",
             Values = {},
             Default = nil,
             Callback = function(selectedOption)
-                local player_tween = game.Players:FindFirstChild(selectedOption)
-                if player_tween then
-                    local character = player_tween.Character
-                    if character then
-                        local humanoid_root_part = character:FindFirstChild("HumanoidRootPart")
-                        if humanoid_root_part then
-                            game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(humanoid_root_part.CFrame)
-                        end
-                    end
-                end
+                variable_tween_player = selectedOption
             end
     })
 
@@ -149,6 +142,23 @@ if Fluent then
     end
 
     UpdatePlayers()
+
+    local button_tween_player = section_settings_tween:AddButton({
+            Title = "Teletransportar",
+            Description = "Se teletransporte para o jogador selecionado",
+            Callback = function()
+                local player_tween = game.Players:FindFirstChild(variable_tween_player)
+                if player_tween then
+                    local character = player_tween.Character
+                    if character then
+                        local humanoid_root_part = character:FindFirstChild("HumanoidRootPart")
+                        if humanoid_root_part then
+                            game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(humanoid_root_part.CFrame)
+                        end
+                    end
+                end
+            end
+    })
     
     Window:Show()
 else
