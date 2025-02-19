@@ -118,6 +118,16 @@ if Fluent then
                 end
             end
     })
+
+    local section_settings_tween = Player:Section("Tween")
+
+    local dropdown_tween_player = section_settings_tween:Dropdown("DropDown_Tween_Players",
+        {
+            Title = "Escolher (em desenvolvimento)",
+            Options = {},
+            Default = nil,
+            Callback = nil,
+    })
     
     Window:Show()
 else
