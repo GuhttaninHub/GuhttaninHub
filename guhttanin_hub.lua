@@ -16,6 +16,10 @@ if Fluent then
 
     local section_settings_player = Player:Section("Player")
 
+    local variable_velocity = 16
+    local variable_jump = 50
+    local variable_gravity = 196.2
+    
     local slider_walkspeed = section_settings_player:AddSlider("Slider_WalkSpeed",
         {
             Title = "Velocidade",
@@ -29,7 +33,7 @@ if Fluent then
                 local humanoid = character:WaitForChild("Humanoid")
 
                 humanoid.WalkSpeed = value
-                local variable_velocity = value
+                variable_velocity = value
             end
     })
 
@@ -46,7 +50,7 @@ if Fluent then
                 local humanoid = character:WaitForChild("Humanoid")
 
                 humanoid.JumpPower = value
-                local variable_jump = value
+                variable_jump = value
             end
     })
 
@@ -61,7 +65,7 @@ if Fluent then
             Increment = 0.2,
             Callback = function(value)
                 Workspace.Gravity = value
-                local variable_gravity = value
+                variable_gravity = value
             end
     })
 
@@ -114,12 +118,12 @@ if Fluent then
             
     })
 
-    humanoid.Died:Connect(Function()
+    humanoid.Died:Connect(function()
             wait(1)
             slider_velocity:SetValue(variable_velocity)
             slider_jump:SetValue(variable_jump)
             slider_gravity:SetValue(variable_gravity)
-        end
+        end)
     
     Window:Show()
 else
