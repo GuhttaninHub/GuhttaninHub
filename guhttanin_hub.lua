@@ -101,21 +101,11 @@ if Fluent then
             Default = false,
             Callback = function(state)
                 local player = game.Players.LocalPlayer
-                local character = game.Workspace:FindFirstChild(player.Name)
+                local character = player.Character or player.CharacterAdded:Wait()
 
-                if state then
-                    if character then
-                        local cancollide = character:FindFirstChild("HumanoidRootPart")
-                        if cancollide then
-                            cancollide.CanCollide = false
-                        end
-                    end
-                else
-                    if character then
-                        local cancollide = character:FindFirstChild("HumanoidRootPart")
-                        if cancollide then
-                            cancollide.CanCollide = true
-                        end
+                for _, part in pairs(character:GetChildren()) do
+                    if part:IsA("BasePart") then
+                        part.CanCollide = false
                     end
                 end
             end
