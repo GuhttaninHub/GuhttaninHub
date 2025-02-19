@@ -96,28 +96,28 @@ if Fluent then
     })
 
     local toggle_imortal = section_settings_player:Toggle("Toggle_Imortal",
-        {
-            Title = "Imortalidade",
-            Default = false,
-            Callback = function(state)
-                local player = game.Players.LocalPlayer
-                local character = player.Character or player.CharacterAdded:Wait()
-                local humanoid = character:WaitForChild("Humanoid")
+    {
+        Title = "Imortalidade",
+        Default = false,
+        Callback = function(state)
+            local player = game.Players.LocalPlayer
+            local character = player.Character or player.CharacterAdded:Wait()
+            local humanoid = character:WaitForChild("Humanoid")
 
-                local connection
-                
-                if state then
-                    connection = humanoid:GetPropertyChangedSignal("Health"):Connect(function()
-                            humanoid.Health = humanoid.MaxHealth
-                        end)
-                else
-                    if connection then
-                        connection:Disconnect()
-                        connection = nil
+            if state then
+                humanoid.Died:Connect(function()
+                    humanoid.Health = humanoid.MaxHealth  -- Impede a morte real
+                end)
+                -- Impede que a saúde caia abaixo do máximo
+                humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+                    if humanoid.Health < humanoid.MaxHealth then
+                        humanoid.Health = humanoid.MaxHealth
                     end
-                end
+                end)
+            else
+                humanoid.Died:Connect(nil)  -- Restaura o comportamento normal de morte
             end
-            
+        end
     })
 
     humanoid.Died:Connect(function()
