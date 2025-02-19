@@ -104,8 +104,10 @@ if Fluent then
                 local character = player.Character or player.CharacterAdded:Wait()
                 local humanoid = character:WaitForChild("Humanoid")
 
+                local connection
+                
                 if state then
-                    local connection = humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+                    connection = humanoid:GetPropertyChangedSignal("Health"):Connect(function()
                             humanoid.Health = humanoid.MaxHealth
                         end)
                 else
