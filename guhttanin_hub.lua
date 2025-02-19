@@ -84,9 +84,26 @@ if Fluent then
         end
     })
 
-    local slider_imortal = section_settings_player:AddSlider("Slider_Imortal",
+    local toggle_imortal = section_settings_player:Toggle("Toggle_Imortal",
         {
             Title = "Imortalidade",
+            Default = false,
+            Callback = function(state)
+                local player = game.Players.LocalPlayer
+                local character = player.Character or player.CharacterAdded:Wait()
+                local humanoid = character:WaitForChild("Humanoid")
+
+                if state then
+                    local connection = humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+                            humanoid.Health = humanoid.MaxHealth
+                        end)
+                else
+                    if connection then
+                        connection:Disconnect()
+                        connection = nil
+                    end
+                end
+            end
             
     })
     
