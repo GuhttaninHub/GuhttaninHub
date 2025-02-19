@@ -125,7 +125,7 @@ if Fluent then
 
     local dropdown_tween_player = section_settings_tween:Dropdown("DropDown_Tween_Players",
         {
-            Title = "Escolher (em desenvolvimento)",
+            Title = "Player",
             Values = {},
             Default = nil,
             Callback = function(selectedOption)
