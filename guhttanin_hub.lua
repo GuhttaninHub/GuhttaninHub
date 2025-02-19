@@ -1,6 +1,10 @@
 local Fluent = loadstring(game:HttpGet("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))()
 
 if Fluent then
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoid = character:WaitForChild("Humanoid")
+    
     local Window = Fluent:CreateWindow({
         Title = "Guhttanin Hub",
         SubTitle = "Desenvolvido por Guhttanin",
@@ -25,6 +29,7 @@ if Fluent then
                 local humanoid = character:WaitForChild("Humanoid")
 
                 humanoid.WalkSpeed = value
+                local variable_velocity = value
             end
     })
 
@@ -41,6 +46,7 @@ if Fluent then
                 local humanoid = character:WaitForChild("Humanoid")
 
                 humanoid.JumpPower = value
+                local variable_jump = value
             end
     })
 
@@ -55,6 +61,7 @@ if Fluent then
             Increment = 0.2,
             Callback = function(value)
                 Workspace.Gravity = value
+                local variable_gravity = value
             end
     })
 
@@ -106,6 +113,13 @@ if Fluent then
             end
             
     })
+
+    humanoid.Died:Connect(Function()
+            wait(1)
+            slider_velocity:SetValue(variable_velocity)
+            slider_jump:SetValue(variable_jump)
+            slider_gravity:SetValue(variable_gravity)
+        end
     
     Window:Show()
 else
