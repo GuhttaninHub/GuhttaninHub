@@ -122,7 +122,7 @@ if Fluent then
 
     humanoid.Died:Connect(function()
             wait(1)
-            slider_velocity:SetValue(variable_velocity)
+            slider_walkspeed:SetValue(variable_velocity)
             slider_jump:SetValue(variable_jump)
             slider_gravity:SetValue(variable_gravity)
         end)
