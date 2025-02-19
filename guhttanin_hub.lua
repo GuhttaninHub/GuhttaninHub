@@ -103,11 +103,18 @@ if Fluent then
                 local player = game.Players.LocalPlayer
                 local character = player.Character or player.CharacterAdded:Wait()
 
-                for _, part in pairs(character:GetChildren()) do
-                    if part:IsA("BasePart") then
-                        part.CanCollide = false
+                if state then
+                    for _, part in pairs(character:GetChildren()) do
+                        if part:IsA("BasePart") then
+                            part.CanCollide = false
+                        end
                     end
-                end
+                else
+                    for _, part in pairs(character:GetChildren()) do
+                        if part:IsA("BasePart") then
+                            part.CanCollide = true
+                        end
+                    end
             end
     })
     
