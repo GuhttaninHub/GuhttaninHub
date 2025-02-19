@@ -124,7 +124,7 @@ if Fluent then
     local dropdown_tween_player = section_settings_tween:Dropdown("DropDown_Tween_Players",
         {
             Title = "Escolher (em desenvolvimento)",
-            Options = {},
+            Values = {},
             Default = nil,
             Callback = function(selectedOption)
                 local player_tween = game.Players:FindFirstChild(selectedOption)
