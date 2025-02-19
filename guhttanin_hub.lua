@@ -147,6 +147,8 @@ if Fluent then
         end
         dropdown_tween_player:SetOptions(players)
     end
+
+    UpdatePlayers()
     
     Window:Show()
 else
