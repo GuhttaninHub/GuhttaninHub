@@ -126,8 +126,27 @@ if Fluent then
             Title = "Escolher (em desenvolvimento)",
             Options = {},
             Default = nil,
-            Callback = nil,
+            Callback = function(selectedOption)
+                local player_tween = game.Players:FindFirstChild(selectedOption)
+                if player then
+                    local character = player_tween.Character
+                    if character then
+                        local humanoid_root_part = character:FindFirstChild("HumanoidRootPart")
+                        if humanoid_root_part then
+                            game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(humanoid_root_part.CFrame)
+                        end
+                    end
+                end
+            end
     })
+
+    local function UpdatePlayers()
+        local players = {}
+        for _, player in pairs(game.Players:GetPlayers()) do
+            table.insert(players, player.Name)
+        end
+        dropdown_tween_player:SetOptions(players)
+    end
     
     Window:Show()
 else
