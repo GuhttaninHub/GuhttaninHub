@@ -94,7 +94,23 @@ if Fluent then
             slider_gravity:SetValue(196.2)
         end
     })
-    
+
+    local toggle_no_clip = section_settings_player:Toggle("Toggle_NoClip",
+        {
+            Title = "NoClip",
+            Default = false,
+            Callback = function(state)
+                local player = game.Players.LocalPlayer
+                local character = player.Character or player.CharacterAdded:Wait()
+                local humanoid = character:WaitForChild("Humanoid")
+
+                if state then
+                    humanoid.CanCollide = false
+                else
+                    humanoid.CanCollide = true
+                end
+            end
+    })
     Window:Show()
 else
     warn("Erro ao carregar o Fluent.")
