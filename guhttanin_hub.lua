@@ -115,6 +115,7 @@ if Fluent then
                             part.CanCollide = true
                         end
                     end
+                end
             end
     })
     
