@@ -145,7 +145,7 @@ if Fluent then
         for _, player in pairs(game.Players:GetPlayers()) do
             table.insert(players, player.Name)
         end
-        dropdown_tween_player:Options(players)
+        dropdown_tween_player:SetValues(player)
     end
 
     UpdatePlayers()
