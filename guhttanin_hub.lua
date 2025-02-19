@@ -101,16 +101,26 @@ if Fluent then
             Default = false,
             Callback = function(state)
                 local player = game.Players.LocalPlayer
-                local character = player.Character or player.CharacterAdded:Wait()
-                local humanoid = character:WaitForChild("Humanoid")
+                local character = game.Workspace:FindFirstChild(player.Name)
 
                 if state then
-                    humanoid.CanCollide = false
+                    if character then
+                        local cancollide = character:FindFirstChild("HumanoidRootPart")
+                        if cancollide then
+                            cancollide.CanCollide = false
+                        end
+                    end
                 else
-                    humanoid.CanCollide = true
+                    if character then
+                        local cancollide = character:FindFirstChild("HumanoidRootPart")
+                        if cancollide then
+                            cancollide.CanCollide = true
+                        end
+                    end
                 end
             end
     })
+    
     Window:Show()
 else
     warn("Erro ao carregar o Fluent.")
