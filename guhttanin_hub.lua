@@ -12,7 +12,7 @@ if Fluent then
         Theme = "Dark",
     })
 
-    local Player = Window:AddTab({ Title = "Settings", Icon = "user"})
+    local Player = Window:AddTab({ Title = "Settings", Icon = "settings"})
 
     local section_settings_player = Player:Section("Player")
 
