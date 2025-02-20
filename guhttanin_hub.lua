@@ -1,4 +1,3 @@
-local RunService = game:GetService("RunService")
 local Fluent = loadstring(game:HttpGet("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))()
 
 if Fluent then
@@ -33,9 +32,7 @@ if Fluent then
                 local character = player.Character or player.CharacterAdded:Wait()
                 local humanoid = character:WaitForChild("Humanoid")
 
-                RunService.Heartbeat:Connect(function(deltaTime)
-                        humanoid.Walkspeed = value
-                    end
+                humanoid.Walkspeed = value
                 variable_velocity = value
             end
     })
