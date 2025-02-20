@@ -166,6 +166,14 @@ if Fluent then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
             end
     })
+
+    local button_shop_fruit = section_settings_tween:AddButton({
+            Title = "Abrir loja de frutas",
+            Callback = function()
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
+                game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true	
+            end
+    })
     
     Window:Show()
 else
