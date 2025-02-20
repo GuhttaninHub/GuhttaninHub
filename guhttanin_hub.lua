@@ -162,6 +162,13 @@ if Fluent then
                 end
             end
     })
+
+    local button_buy_fruit = section_tween_player:AddButton({
+                Title = "Auto Random Buy Fruit",
+                Callback = function()
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
+                end
+    })
     
     Window:Show()
 else
