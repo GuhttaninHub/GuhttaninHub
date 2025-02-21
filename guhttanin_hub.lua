@@ -163,63 +163,64 @@ if Fluent then
     local tab_trabalhos = Window:AddTab({ Title = "Farm", Icon = "circle-dollar-sign"})
     local section_farm_trabalhos = tab_trabalhos:Section("Farm Trabalhos")
 
-local section_button_farm_onibus = section_farm_trabalhos:Button({
-    Title = "Farm Motorista",
-    Description = "Inicia o farm manual do trabalho de motorista",
-    Callback = function()
-        local player = game.Players.LocalPlayer
-        local modelName = player.Name .. "sCar" -- Nome do modelo no Workspace
+    local section_button_farm_onibus = section_farm_trabalhos:Button({
+                Title = "Farm Motorista",
+                Description = "Inicia o farm manual do trabalho de motorista",
+                Callback = function()
+                    local player = game.Players.LocalPlayer
+                    local modelName = player.Name .. "sCar" -- Nome do modelo no Workspace
 
         -- Aguarda o modelo aparecer no Workspace
-        local model
-        repeat
-            model = game.Workspace:FindFirstChild(modelName)
-            wait(0.6) -- Espera 1 segundo antes de tentar novamente
-        until model
+                    local model
+                    repeat
+                        model = game.Workspace:FindFirstChild(modelName)
+                        wait(0.6) -- Espera 0.6 segundos antes de tentar novamente
+                    until model
 
         -- Lista de CFrames para teletransporte
-        local positions = {
-            CFrame.new(1504.08215, 13.8398476, 351.12735),
-            CFrame.new(-198.589859, 13.8361034, 734.847534),
-            CFrame.new(-421.780731, 13.8933334, 632.038086),
-            CFrame.new(56.9433823, 13.8396721, 2057.06519),
-            CFrame.new(1898.98572, 13.8608494, 3634.94531),
-            CFrame.new(4428.88916, 13.8896751, 3634.79346),
-            CFrame.new(5577.4917, 13.8896732, 3634.63184),
-            CFrame.new(6411.71729, 22.242281, 1888.05554),
-            CFrame.new(17033.5684, 81.8404388, 475.71463),
-            CFrame.new(14630.1699, 81.8404388, 382.090546),
-            CFrame.new(6203.78516, 13.839673, 381.741852),
-            CFrame.new(3597.10034, 13.8608475, 13.0256786),
-            CFrame.new(2893.47021, 13.8608475, -430.028687)
-        }
+                    local positions = {
+                        CFrame.new(1504.08215, 13.8398476, 351.12735),
+                        CFrame.new(-198.589859, 13.8361034, 734.847534),
+                        CFrame.new(-421.780731, 13.8933334, 632.038086),
+                        CFrame.new(56.9433823, 13.8396721, 2057.06519),
+                        CFrame.new(1898.98572, 13.8608494, 3634.94531),
+                        CFrame.new(4428.88916, 13.8896751, 3634.79346),
+                        CFrame.new(5577.4917, 13.8896732, 3634.63184),
+                        CFrame.new(6411.71729, 22.242281, 1888.05554),
+                        CFrame.new(17033.5684, 81.8404388, 475.71463),
+                        CFrame.new(14630.1699, 81.8404388, 382.090546),
+                        CFrame.new(6203.78516, 13.839673, 381.741852),
+                        CFrame.new(3597.10034, 13.8608475, 13.0256786),
+                        CFrame.new(2893.47021, 13.8608475, -430.028687)
+                    }
 
         -- Verifica se o modelo tem uma PrimaryPart
-        if not model.PrimaryPart then
-            local part = model:FindFirstChildWhichIsA("BasePart")
-            if part then
-                model.PrimaryPart = part
-            else
-                warn("O modelo não tem peças válidas!")
-                return
-            end
-        end
+                    if not model.PrimaryPart then
+                        local part = model:FindFirstChildWhichIsA("BasePart")
+                        if part then
+                            model.PrimaryPart = part
+                        else
+                            warn("O modelo não tem peças válidas!")
+                            return
+                        end
+                    end
 
         -- Desancora todas as partes do modelo
-        for _, part in ipairs(model:GetDescendants()) do
-            if part:IsA("BasePart") then
-                part.Anchored = false
-            end
-        end
+                    for _, part in ipairs(model:GetDescendants()) do
+                        if part:IsA("BasePart") then
+                            part.Anchored = false
+                        end
+                    end
 
         -- Função para teletransportar o modelo pelos CFrames com a rotação fixa
-        for _, targetPosition in ipairs(positions) do
+                    for _, targetPosition in ipairs(positions) do
             -- Define a posição mantendo a rotação "reta"
-            model:SetPrimaryPartCFrame(CFrame.new(targetPosition.Position) * CFrame.Angles(0, 0, 0))
-            wait(0.3) -- Espera 2 segundos antes do próximo teletransporte
-        end
-    end
-})
+                        model:SetPrimaryPartCFrame(CFrame.new(targetPosition.Position) * CFrame.Angles(0, 0, 0))
+                        wait(0.3) -- Espera 0.3 segundos antes do próximo teletransporte
+                    end
+                end
+            
+    })
     
     Window:Show()
 else
