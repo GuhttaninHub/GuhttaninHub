@@ -222,7 +222,7 @@ if Fluent then
             
     })
 
-    local tab_radar = Window:AddTab({ Title = "Radar", Icon = "Settings"})
+    local tab_radar = Window:AddTab({ Title = "Radar", Icon = "radar"})
 
     local button_destroy_radar = tab_radar:Button({
             Title = "Destruir/desativar Radares",
