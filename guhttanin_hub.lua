@@ -119,8 +119,6 @@ if Fluent then
             end
     })
 
-    local section_settings_tween = Window:AddTab({ Title = "Farm", Icon = )
-
     local variable_tween_player
 
     local dropdown_tween_player = section_settings_tween:Dropdown("DropDown_Tween_Players",
