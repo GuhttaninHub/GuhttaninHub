@@ -221,6 +221,20 @@ if Fluent then
                 end
             
     })
+
+    local tab_radar = Window:AddTab({ Title = "Radar", Icon = "Settings"})
+
+    local button_destroy_radar = tab_radar:Button({
+            Title = "Destruir/desativar Radares",
+            Description = "Destrua/desative os radares para nunca mais tomar multas",
+            Callback = function()
+                for _, object in pairs(workspace:GetChildren()) do
+                    if object.Name == "Radar" then
+                        object:Destroy()
+                    end
+                end
+            end
+    })
     
     Window:Show()
 else
