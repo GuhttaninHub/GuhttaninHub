@@ -162,7 +162,7 @@ if Fluent then
 
     local section_trabalhos = Player:Section("Farm Trabalhos")
 
-    local section_button_farm_onibus = section_trabalhos:Button({
+local section_button_farm_onibus = section_trabalhos:Button({
     Title = "Farm Motorista",
     Description = "Inicia o farm manual do trabalho de motorista",
     Callback = function()
@@ -178,19 +178,19 @@ if Fluent then
 
         -- Lista de CFrames para teletransporte
         local positions = {
-            CFrame.new(1504.08215, 13.8398476, 351.12735, -6.43730164e-06, -0.173615217, 0.984813571, 1, -6.43730164e-06, 5.48362732e-06, 5.48362732e-06, 0.984813571, 0.173615217),
-            CFrame.new(-198.589859, 13.8361034, 734.847534, 0, 0, 1, 1, 0, 0, 0, 1, 0),
-            CFrame.new(-421.780731, 13.8933334, 632.038086, -5.24520874e-06, 9.15527344e-05, 1, 1, 5.24520874e-06, 5.24520874e-06, -5.24520874e-06, 1, -9.15527344e-05),
-            CFrame.new(56.9433823, 13.8396721, 2057.06519, 0, 0, 1, 1, 0, 0, 0, 1, 0),
-            CFrame.new(1898.98572, 13.8608494, 3634.94531, 0, 0, 1, 1, 0, 0, 0, 1, 0),
-            CFrame.new(4428.88916, 13.8896751, 3634.79346, -3.64780426e-05, -0.014883101, 0.999889135, 0.99999994, -3.64780426e-05, 3.59117985e-05, 3.59117985e-05, 0.999889135, 0.0148831606),
-            CFrame.new(5577.4917, 13.8896732, 3634.63184, 0, 0, 1, 1, 0, 0, 0, 1, 0),
-            CFrame.new(6411.71729, 22.242281, 1888.05554, -6.83069229e-05, 6.74426556e-05, 1.00000024, 0.999952793, 0.00973552465, 6.74426556e-05, -0.00973573327, 0.999952793, -6.83069229e-05),
-            CFrame.new(17033.5684, 81.8404388, 475.71463, 0, 0, 1, 1, 0, 0, 0, 1, 0),
-            CFrame.new(14630.1699, 81.8404388, 382.090546, 0, 0, 1, 1, 0, 0, 0, 1, 0),
-            CFrame.new(6203.78516, 13.839673, 381.741852, 0, 0, 1, 1, 0, 0, 0, 1, 0),
-            CFrame.new(3597.10034, 13.8608475, 13.0256786, 0, 0, 1, 1, 0, 0, 0, 1, 0),
-            CFrame.new(2893.47021, 13.8608475, -430.028687, 0, 0, 1, 1, 0, 0, 0, 1, 0)
+            CFrame.new(1504.08215, 13.8398476, 351.12735),
+            CFrame.new(-198.589859, 13.8361034, 734.847534),
+            CFrame.new(-421.780731, 13.8933334, 632.038086),
+            CFrame.new(56.9433823, 13.8396721, 2057.06519),
+            CFrame.new(1898.98572, 13.8608494, 3634.94531),
+            CFrame.new(4428.88916, 13.8896751, 3634.79346),
+            CFrame.new(5577.4917, 13.8896732, 3634.63184),
+            CFrame.new(6411.71729, 22.242281, 1888.05554),
+            CFrame.new(17033.5684, 81.8404388, 475.71463),
+            CFrame.new(14630.1699, 81.8404388, 382.090546),
+            CFrame.new(6203.78516, 13.839673, 381.741852),
+            CFrame.new(3597.10034, 13.8608475, 13.0256786),
+            CFrame.new(2893.47021, 13.8608475, -430.028687)
         }
 
         -- Verifica se o modelo tem uma PrimaryPart
@@ -211,9 +211,10 @@ if Fluent then
             end
         end
 
-        -- Função para teletransportar o modelo pelos CFrames com delay de 2 segundos
-        for _, targetCFrame in ipairs(positions) do
-            model:SetPrimaryPartCFrame(targetCFrame)
+        -- Função para teletransportar o modelo pelos CFrames com a rotação fixa
+        for _, targetPosition in ipairs(positions) do
+            -- Define a posição mantendo a rotação "reta"
+            model:SetPrimaryPartCFrame(CFrame.new(targetPosition.Position) * CFrame.Angles(0, 0, 0))
             wait(2) -- Espera 2 segundos antes do próximo teletransporte
         end
     end
