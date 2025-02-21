@@ -121,6 +121,8 @@ if Fluent then
 
     local variable_tween_player
 
+    local section_settings_tween = Player:Section("Tween")
+
     local dropdown_tween_player = section_settings_tween:Dropdown("DropDown_Tween_Players",
         {
             Title = "Player",
