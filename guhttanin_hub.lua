@@ -160,9 +160,10 @@ if Fluent then
             end
     })
 
-    local section_trabalhos = Window:AddTab("Farm Trabalhos")
+    local tab_trabalhos = Window:AddTab({ Title = "Farm", Icon = "circle-dollar-sign"})
+    local section_farm_trabalhos = tab_trabalhos:Section("Farm Trabalhos")
 
-local section_button_farm_onibus = section_trabalhos:Button({
+local section_button_farm_onibus = section_farm_trabalhos:Button({
     Title = "Farm Motorista",
     Description = "Inicia o farm manual do trabalho de motorista",
     Callback = function()
