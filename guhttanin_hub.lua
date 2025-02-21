@@ -289,7 +289,7 @@ if Fluent then
                     model:SetPrimaryPartCFrame(CFrame.new(targetPosition.Position) * CFrame.Angles(0, 0, 0))
                     
                     if i == #positions - 1 then
-                        wait(5)
+                        wait(5.8)
                     else
                         wait(0.3) -- Espera 0.3 segundos antes do próximo teletransporte
                     end
