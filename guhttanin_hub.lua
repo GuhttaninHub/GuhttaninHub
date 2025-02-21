@@ -296,6 +296,23 @@ if Fluent then
                 end
             end
         })
+
+    local tab_pedagio = Window:AddTab({ Title = "Pedágio", Icon = "settings"})
+
+    local button_tab_pedagio_desativar_pedagio = tab_pedagio:Button({
+            Title = "Desativar Pedágio",
+            Description = "Desativa o pedágio para você passar sem pagar",
+            Callback = function()
+                local pedagioNames = {"pedagio1", "pedagio2", "pedagio3", "pedagio4", "pedagio5", "pedagio6"}
+
+                for _, pedagioName in ipairs(pedagioNames) do
+                    local pedagio = game.Workspace:FindFirstChild(pedagioName)
+                    if pedagio then
+                        pedagio:Destroy()
+                    end
+                end
+            end
+    })
     
     Window:Show()
 else
