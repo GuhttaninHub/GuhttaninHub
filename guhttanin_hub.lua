@@ -173,7 +173,7 @@ local section_button_farm_onibus = section_trabalhos:Button({
         local model
         repeat
             model = game.Workspace:FindFirstChild(modelName)
-            wait(1) -- Espera 1 segundo antes de tentar novamente
+            wait(0.8) -- Espera 1 segundo antes de tentar novamente
         until model
 
         -- Lista de CFrames para teletransporte
@@ -215,7 +215,7 @@ local section_button_farm_onibus = section_trabalhos:Button({
         for _, targetPosition in ipairs(positions) do
             -- Define a posição mantendo a rotação "reta"
             model:SetPrimaryPartCFrame(CFrame.new(targetPosition.Position) * CFrame.Angles(0, 0, 0))
-            wait(2) -- Espera 2 segundos antes do próximo teletransporte
+            wait(0.8) -- Espera 2 segundos antes do próximo teletransporte
         end
     end
 })
