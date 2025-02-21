@@ -235,6 +235,61 @@ if Fluent then
                 end
             end
     })
+
+    local tab_cnh = Window:AddTab({ Title = "CNH", Icon = "settings"})
+
+    local section_tab_cnh_auto_cnh = tab_cnh:Button({
+    Title = "Auto CNH",
+    Description = "Faz o trageto/puzzle da CNH",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local modelName = player.Name .. "sCar" -- Nome do modelo no Workspace
+
+        -- Aguarda o modelo aparecer no Workspace
+        local model
+        repeat
+            model = game.Workspace:FindFirstChild(modelName)
+            wait(0.6) -- Espera 1 segundo antes de tentar novamente
+        until model
+
+        -- Lista de CFrames para teletransporte
+        local positions = {
+            CFrame.new(608.953369, 13.9914713, 656.754578, -1, 0, 0, 0, 1, 0, 0, 0, -1),
+            CFrame.new(648.325867, 13.9914713, 734.148132, -1, 0, 0, 0, 1, 0, 0, 0, -1),
+            CFrame.new(648.494385, 13.9914713, 821.196533, -1, 8.74227766e-08, 0, 8.74227766e-08, 1, 8.74227766e-08, 7.64274186e-15, 8.74227766e-08, -1),
+            CFrame.new(718.148132, 13.9914713, 940.732117, -1, 0, 0, 0, 1, 0, 0, 0, -1),
+            CFrame.new(792.810791, 13.9914713, 772.123718, -1, 0, 0, 0, 1, 0, 0, 0, -1),
+            CFrame.new(781.506897, 13.9914713, 689.813293, -1, 0, 0, 0, 1, 0, 0, 0, -1),
+            CFrame.new(731.802734, 8.52883148, 587.48999, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+            CFrame.new(608.953369, 13.9914713, 587.855347, -1, 0, 0, 0, 1, 0, 0, 0, -1)
+        }
+
+        -- Verifica se o modelo tem uma PrimaryPart
+        if not model.PrimaryPart then
+            local part = model:FindFirstChildWhichIsA("BasePart")
+            if part then
+                model.PrimaryPart = part
+            else
+                warn("O modelo não tem peças válidas!")
+                return
+            end
+        end
+
+        -- Desancora todas as partes do modelo
+        for _, part in ipairs(model:GetDescendants()) do
+            if part:IsA("BasePart") then
+                part.Anchored = false
+            end
+        end
+
+        -- Função para teletransportar o modelo pelos CFrames, com rotação fixa
+        for _, targetPosition in ipairs(positions) do
+            -- Define a posição mantendo a rotação "reta"
+            model:SetPrimaryPartCFrame(CFrame.new(targetPosition.Position) * CFrame.Angles(0, 0, 0))
+            wait(0.3) -- Espera 0.3 segundos antes do próximo teletransporte
+        end
+    end
+})
     
     Window:Show()
 else
