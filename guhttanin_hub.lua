@@ -119,7 +119,7 @@ if Fluent then
             end
     })
 
-    local section_settings_tween = Player:Section("Tween")
+    local section_settings_tween = Window:AddTab({ Title = "Farm", Icon = )
 
     local variable_tween_player
 
@@ -160,7 +160,7 @@ if Fluent then
             end
     })
 
-    local section_trabalhos = Player:Section("Farm Trabalhos")
+    local section_trabalhos = Window:AddTab("Farm Trabalhos")
 
 local section_button_farm_onibus = section_trabalhos:Button({
     Title = "Farm Motorista",
