@@ -228,6 +228,27 @@ if Fluent then
             Title = "Destruir/desativar Radares",
             Description = "Destrua/desative os radares para nunca mais tomar multas",
             Callback = function()
+                local args = {
+                    [1] = {
+                        [1] = {
+                            [1] = "\5",
+                            [2] = {
+                                [1] = "onibus",
+                                [2] = "etapa10"
+                            }
+                        },
+                        [2] = {
+                            [1] = "\3",
+                            [2] = {
+                                [1] = "noticia",
+                                [2] = "Radares desativados com sucesso! Obrigado por usar meu script!"
+                            }
+                        }
+                    }
+                }
+                game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+                
+                
                 for _, object in pairs(workspace:GetChildren()) do
                     if object.Name == "Radar" then
                         object:Destroy()
@@ -303,6 +324,26 @@ if Fluent then
             Title = "Desativar Pedágio",
             Description = "Desativa o pedágio para você passar sem pagar",
             Callback = function()
+                local args = {
+                    [1] = {
+                        [1] = {
+                            [1] = "\5",
+                            [2] = {
+                                [1] = "onibus",
+                                [2] = "etapa10"
+                            }
+                        },
+                        [2] = {
+                            [1] = "\3",
+                            [2] = {
+                                [1] = "noticia",
+                                [2] = "Pedágio desbloqueado com sucesso! Obrigado por usar meu script!"
+                            }
+                        }
+                    }
+                }
+                game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+                
                 local pedagioNames = {"pedagio1", "pedagio2", "pedagio3", "pedagio4", "pedagio5", "pedagio6"}
 
                 for _, pedagioName in ipairs(pedagioNames) do
