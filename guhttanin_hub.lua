@@ -216,7 +216,7 @@ if Fluent then
                     for _, targetPosition in ipairs(positions) do
             -- Define a posição mantendo a rotação "reta"
                         model:SetPrimaryPartCFrame(CFrame.new(targetPosition.Position) * CFrame.Angles(0, 0, 0))
-                        wait(0.3) -- Espera 0.3 segundos antes do próximo teletransporte
+                        wait(2) -- Espera 0.3 segundos antes do próximo teletransporte
                     end
                 end
             
