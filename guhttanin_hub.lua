@@ -6,7 +6,7 @@ if Fluent then
     local humanoid = character:WaitForChild("Humanoid")
     
     local Window = Fluent:CreateWindow({
-        Title = "Guhttanin Hub",
+        Title = "EB Luy Script Hub",
         SubTitle = "Desenvolvido por Guhttanin",
         Size = UDim2.fromOffset(720, 400),
         Theme = "Dark",
@@ -158,6 +158,25 @@ if Fluent then
                     end
                 end
             end
+    })
+
+    local tab_pedreiro = Window:AddTab({ Title = "Pedreiro", Icon = "settings"})
+
+    local tab_pedreiro_button_portao_rec = tab_pedreiro:AddButton({
+            Title = "Quebrar Portão de Recrutamento",
+            Description = "Some com o portão de recrutamento",
+            Callback = function()
+                local gate = game.Workspace:FindFirstChild("Gates")
+
+                if gate then
+                    local gatesRec = gate:FindFirstChild("GatesRec")
+                    if gatesRec then
+                        local targetGate = gatesRec:FindFirstChild("Gate")
+                        if targetGate then
+                            targetGate:Destroy()
+                        end
+                    end
+                end      
     })
     
     Window:Show()
