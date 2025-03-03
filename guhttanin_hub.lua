@@ -176,7 +176,8 @@ if Fluent then
                             targetGate:Destroy()
                         end
                     end
-                end      
+                end
+            end
     })
     
     Window:Show()
