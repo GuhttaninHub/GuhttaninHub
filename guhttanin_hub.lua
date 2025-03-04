@@ -179,6 +179,59 @@ if Fluent then
                 end
             end
     })
+
+    local tab_farm = Window:AddTab({ Title = "Farm", Icon = "settings"})
+
+    local tab_farrm_buttob_farm_bank = tab_farm:AddButton({
+            Title = "Farm Bank",
+            Description = "Inicia o Farm no Banco",
+            Callback = function()
+                local door = game.Workspace.Bank.CofreDoorModel:FindFirstChild("DoorBank")
+                if door then
+                    door:Destroy()
+                end
+
+                local player = game.Players.LocalPlayer
+                local character = player.Character or player.CharacterAdded:Wait()
+
+                if character and character:FindFirstChild("HumanoidRootPart") then
+                    character.HumanoidRootPart.CFrame = CFrame.new(
+                        160.375336, 19.5691586, 88.2443695, 
+                        -1.1920929e-07, 0, 1.00000012, 
+                        0, 1, 0, 
+                        -1.00000012, 0, -1.1920929e-07
+                    )
+                end
+
+                wait(1)
+
+                character.HumanoidRootPart.CFrame = CFrame.new(
+                    170.940872, 21.8941059, 123.225372,
+                    1, 0, 0, 
+                    0, 1, 0, 
+                    0, 0, 1
+                )
+
+                wait(1)
+
+                character.HumanoidRootPart.CFrame = CFrame.new(
+                    167.144455, 17.9736748, 163.366989, 
+                    0, 0, 1, 
+                    0, 1, 0, 
+                    -1, 0, 0
+                )
+
+                wait(0.3)
+
+                character.HumanoidRootPart.CFrame = CFrame.new(
+                    170.940872, 21.8941059, 123.225372,
+                    1, 0, 0, 
+                    0, 1, 0, 
+                    0, 0, 1
+                )
+                
+            end
+    })
     
     Window:Show()
 else
