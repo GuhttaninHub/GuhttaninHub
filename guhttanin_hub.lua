@@ -164,7 +164,7 @@ if Fluent then
 
     local tab_pedreiro_button_portao_rec = tab_pedreiro:AddButton({
             Title = "Quebrar Portão de Recrutamento",
-            Description = "Some com o portão de recrutamento",
+            Description = "Some Com o Portão De Recrutamento",
             Callback = function()
                 local gate = game.Workspace:FindFirstChild("Gates")
 
@@ -243,6 +243,17 @@ if Fluent then
                     0, 1, 0, 
                     0.357611686, 0, -0.933870435
                 )
+            end
+    })
+
+    local tab_pedreiro_button_door_bank = tab_pedreiro:AddButton({
+            Title = "Quebrar Cofre do Banco",
+            Description = "Some Com o Cofre do Banco",
+            Callback = function()
+                local door = game.Workspace.Bank.CofreDoorModel:FindFirstChild("DoorBank")
+                if door then
+                    door:Destroy()
+                end
             end
     })
     
