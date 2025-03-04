@@ -6,7 +6,7 @@ if Fluent then
     local humanoid = character:WaitForChild("Humanoid")
     
     local Window = Fluent:CreateWindow({
-        Title = "Moonlight Hub - EB Luy",
+        Title = "True Love Cheats - EB Luy",
         SubTitle = "Desenvolvido por Guhttanin",
         Size = UDim2.fromOffset(720, 400),
         Theme = "Dark",
