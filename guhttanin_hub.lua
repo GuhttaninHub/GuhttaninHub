@@ -182,7 +182,7 @@ if Fluent then
 
     local tab_farm = Window:AddTab({ Title = "Farm", Icon = "settings"})
 
-    local tab_farrm_buttob_farm_bank = tab_farm:AddButton({
+    local tab_farm_buttob_farm_bank = tab_farm:AddButton({
             Title = "Farm Bank",
             Description = "Inicia o Farm no Banco",
             Callback = function()
@@ -230,6 +230,19 @@ if Fluent then
                     0, 0, 1
                 )
                 
+            end
+    })
+
+    local tab_farm_button_delivery_money = tab_farm:AddButton({
+            Title = "Entregar Dinheiro",
+            Description = "Entregue o Dinheiro",
+            Callback = function()
+                character.HumanoidRootPart.CFrame = CFrame.new(
+                    195.395508, 6.15739202, 621.625305, 
+                    -0.933870435, 0, -0.357611686, 
+                    0, 1, 0, 
+                    0.357611686, 0, -0.933870435
+                )
             end
     })
     
