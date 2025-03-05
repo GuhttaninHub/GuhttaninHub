@@ -191,6 +191,17 @@ if Fluent then
                     door:Destroy()
                 end
 
+                local bank = game.Workspace:FindFirstChild("Bank")
+
+                if bank then
+                    local lasers = bank:FindFirstChild("Lasers")
+                    if lasers then
+                        for _, obj in pairs(lasers:GetChildren()) do
+                            obj:Destroy()
+                        end
+                    end
+                end
+
                 local player = game.Players.LocalPlayer
                 local character = player.Character or player.CharacterAdded:Wait()
 
@@ -202,34 +213,6 @@ if Fluent then
                         -1.00000012, 0, -1.1920929e-07
                     )
                 end
-
-                wait(1)
-
-                character.HumanoidRootPart.CFrame = CFrame.new(
-                    170.940872, 21.8941059, 123.225372,
-                    1, 0, 0, 
-                    0, 1, 0, 
-                    0, 0, 1
-                )
-
-                wait(1)
-
-                character.HumanoidRootPart.CFrame = CFrame.new(
-                    167.144455, 17.9736748, 163.366989, 
-                    0, 0, 1, 
-                    0, 1, 0, 
-                    -1, 0, 0
-                )
-
-                wait(0.3)
-
-                character.HumanoidRootPart.CFrame = CFrame.new(
-                    170.940872, 21.8941059, 123.225372,
-                    1, 0, 0, 
-                    0, 1, 0, 
-                    0, 0, 1
-                )
-                
             end
     })
 
@@ -247,12 +230,29 @@ if Fluent then
     })
 
     local tab_pedreiro_button_door_bank = tab_pedreiro:AddButton({
-            Title = "Quebrar Cofre do Banco",
-            Description = "Some Com o Cofre do Banco",
+            Title = "Quebrar Porta do Cofre do Banco",
+            Description = "Some Com a Porta do Cofre do Banco",
             Callback = function()
                 local door = game.Workspace.Bank.CofreDoorModel:FindFirstChild("DoorBank")
                 if door then
                     door:Destroy()
+                end
+            end
+    })
+
+    local tab_pedreiro_button_lasers_bank = tab_pedreiro:AddButton({
+            Title = "Quebrar Lasers Do Banco",
+            Description = "Some Com os Lasers do Banco",
+            Callback = function()
+                local bank = game.Workspace:FindFirstChild("Bank")
+
+                if bank then
+                    local lasers = bank:FindFirstChild("Lasers")
+                    if lasers then
+                        for _, obj in pairs(lasers:GetChildren()) do
+                            obj:Destroy()
+                        end
+                    end
                 end
             end
     })
