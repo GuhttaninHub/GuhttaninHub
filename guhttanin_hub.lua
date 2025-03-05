@@ -207,10 +207,10 @@ if Fluent then
 
                 if character and character:FindFirstChild("HumanoidRootPart") then
                     character.HumanoidRootPart.CFrame = CFrame.new(
-                        169.275726, 17.7747517, 125.360146, 
-                        0, 0, 1, 
+                        160.375336, 20.5691586, 88.2443695,
+                        -1.1920929e-07, 0, 1.00000012, 
                         0, 1, 0, 
-                        -1, 0, 0
+                        -1.00000012, 0, -1.1920929e-07
                     )
                 end
             end
