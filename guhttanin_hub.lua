@@ -37,7 +37,7 @@ if Fluent then
             Description = "Delete All Doors From The Game",
             Callback = 
             Delete_All_Doors
-            Notification("Portas Deletadas", "Um obrigado de Guhttanin (Dev)", nil, 5)
+            Notification("Portas Deletadas", "Um obrigado de Guhttanin (Dev)", 5)
     })
     
     Window:Show()
