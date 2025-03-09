@@ -1,3 +1,13 @@
+local function Delete_All_Doors()
+    local map = game.Workspace:FindFirstChild("Map")
+    if map then
+        local puzzles = map:FindFirstChild("Puzzles")
+        if puzzles then
+            puzzles:Destroy()
+        end
+    end
+end
+
 local Fluent = loadstring(game:HttpGet("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))()
 
 if Fluent then
@@ -17,7 +27,7 @@ if Fluent then
     local Doors_Tab_Option_Button_All_Doors_Delete = Doors_Tab:AddButton({
             Title = "Delete All Doors",
             Description = "Delete All Doors From The Game",
-            Callback = 
+            Callback = Delete_All_Doors()
     })
     
     Window:Show()
