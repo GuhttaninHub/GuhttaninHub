@@ -8,14 +8,6 @@ local function Delete_All_Doors()
     end
 end
 
-local function Notification(title, content, duration)
-    Fluent:Notify{
-        Title = title,
-        Content = content,
-        Duration = duration
-    }
-end
-
 local Fluent = loadstring(game:HttpGet("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))()
 
 if Fluent then
@@ -37,7 +29,11 @@ if Fluent then
             Description = "Delete All Doors From The Game",
             Callback = function()
                 Delete_All_Doors()
-                Notification("Portas Deletadas", "Um obrigado de Guhttanin (Dev)", 5)
+                Fluent:Notify{
+                    Title = "Portas Deletadas",
+                    Content = "Um Obrigado de Guhttanin (Dev)",
+                    Duration = 5
+                }
             end
     })
     
