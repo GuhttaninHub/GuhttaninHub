@@ -9,7 +9,7 @@ if Fluent then
         Title = "True Love Cheats - Centipede",
         SubTitle = "Desenvolvido por Guhttanin",
         Size = UDim2.fromOffset(720, 400),
-        Theme = "Dark",
+        Theme = "Aqua",
     })
     
     Window:Show()
