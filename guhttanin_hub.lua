@@ -12,7 +12,13 @@ if Fluent then
         Theme = "Aqua",
     })
 
-    local Doors_Tab = Window:AddTab({ Title = "Doors", Icon = })
+    local Doors_Tab = Window:AddTab({ Title = "Doors", Icon = "door-open" })
+
+    local Doors_Tab_Option_Button_All_Doors_Delete = Doors_Tab:AddButton({
+            Title = "Delete All Doors",
+            Description = "Delete All Doors From The Game",
+            Callback = 
+    })
     
     Window:Show()
 else
