@@ -9,7 +9,7 @@ local function Delete_All_Doors()
 end
 
 local function Notification(title, content, subcontent, duration)
-    Fluent:Notify({
+    Window:Notify({
         Title = title,
         Content = content,
         SubContent = subcontent,
