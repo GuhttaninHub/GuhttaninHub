@@ -9,12 +9,12 @@ local function Delete_All_Doors()
 end
 
 local function Notification(title, content, subcontent, duration)
-    Window:Notify({
+    Fluent:Notify{
         Title = title,
         Content = content,
         SubContent = subcontent,
         Duration = duration
-    })
+    }
 end
 
 local Fluent = loadstring(game:HttpGet("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))()
