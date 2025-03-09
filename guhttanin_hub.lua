@@ -11,6 +11,8 @@ if Fluent then
         Size = UDim2.fromOffset(720, 400),
         Theme = "Aqua",
     })
+
+    local Doors_Tab = Window:AddTab({ Title = "Doors", Icon = })
     
     Window:Show()
 else
