@@ -2,7 +2,7 @@ local function End_Teleport()
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
 
-    local destino = CFrame.new(551.71814, 910.576904, 598.807861, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07) -- Altere para a posição desejada
+    local destino = CFrame.new(582.218201, 902.354614, 598.786926, -1.1920929e-07, 0, -1.00000012, 0, 1, 0, 1.00000012, 0, -1.1920929e-07) -- Altere para a posição desejada
 
     if character and character:FindFirstChild("HumanoidRootPart") then
         character.HumanoidRootPart.CFrame = destino
