@@ -1,11 +1,26 @@
-local function Delete_All_Doors()
-    local map = game.Workspace:FindFirstChild("Map")
-    if map then
-        local puzzles = map:FindFirstChild("Puzzles")
-        if puzzles then
-            puzzles:Destroy()
-        end
+local function End_Teleport()
+    local player = game.Players.LocalPlayer
+    local character = player.Character or player.CharacterAdded:Wait()
+
+    local destino = CFrame.new(551.71814, 910.576904, 598.807861, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07) -- Altere para a posição desejada
+
+    if character and character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.CFrame = destino
     end
+
+    local args = {
+        [1] = "teleportToCheckpoint",
+        [2] = 21
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Travel"):FireServer(unpack(args))
+
+    local args = {
+        [1] = "teleportToCheckpoint",
+        [2] = 23
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Travel"):FireServer(unpack(args))
 end
 
 local Fluent = loadstring(game:HttpGet("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau"))()
@@ -16,23 +31,23 @@ if Fluent then
     local humanoid = character:WaitForChild("Humanoid")
     
     local Window = Fluent:CreateWindow({
-        Title = "True Love Cheats - Centipede",
+        Title = "True Love Cheats - Passeio Com Cachorro - Obby de 2 Jogadores",
         SubTitle = "Desenvolvido por Guhttanin",
         Size = UDim2.fromOffset(720, 400),
         Theme = "Aqua",
     })
 
-    local Doors_Tab = Window:AddTab({ Title = "Doors", Icon = "door-open" })
+    local End_Tab = Window:AddTab({ Title = "End Teleport", Icon = "settings" })
 
-    local Doors_Tab_Option_Button_All_Doors_Delete = Doors_Tab:AddButton({
-            Title = "Delete All Doors",
-            Description = "Delete All Doors From The Game",
+    local End_Button = End_Tab:AddButton({
+            Title = "End Teleport",
+            Description = "Te Teleporta Até o Final",
             Callback = function()
-                Delete_All_Doors()
+                End_Teleport()
                 Fluent:Notify{
-                    Title = "Portas Deletadas",
-                    Content = "Um Obrigado de Guhttanin (Dev)",
-                    Duration = 5
+                    Title = "Um Obrigado de Guhttanin (Dev)",
+                    Content = "Teletransportado até o final! Obrigado por usar meus Cheats",
+                    Duration = 10
                 }
             end
     })
